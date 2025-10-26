@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <!-- מטא-דאטה ולינקים לספריות חיצוניות -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INSS Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- כותרת עליונה עם לוגו וטקסט -->
+  <header id="PublicationsHeader" class="d-flex justify-content-between align-items-center px-5">
+    <img src="images/header.png" alt="Background Image" id="headerBackground">
+    <div id="PublicationsText">
+      <p id="textPublic1">דף הבית > פרסומים</p>
+      <h1 id="textPublic2">פרסומים</h1>
+    </div>
+    <div id="INSSLogo">
+      <img src="images/INSSLogo.png" alt="INSS Logo">
+    </div>
+  </header>
+
+  <!-- אזור החיפוש והאייקונים החברתיים -->
+  <div id="HeaderArea" class="container-fluid">
+    <div class="row align-items-start">
+            <section id="searchArea" class="col-lg-8 col-md-12">
+        
+        <div class="row g-3 mb-3">
+          <div class="col-md-6 col-sm-12">
+            <select id="type" class="form-select">
+              <option value="">בחר סוג</option>
+              <option value="type1">סוג 1</option>
+              <option value="type2">סוג 2</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <select id="subject" class="form-select">
+              <option value="">בחר נושא</option>
+              <option value="topic1">נושא 1</option>
+              <option value="topic2">נושא 2</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="row g-2">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <input type="text" id="foundBy" class="form-control" placeholder="מצא חוקר">
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <input type="text" id="searchText" class="form-control" placeholder="טקסט חופשי">
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <input type="text" id="fromDate" class="form-control" placeholder="מתאריך" onfocus="this.type='date'"
+              onblur="if(!this.value) this.type='text'">
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <input type="text" id="toDate" class="form-control" placeholder="עד תאריך" onfocus="this.type='date'"
+              onblur="if(!this.value) this.type='text'">
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-12">
+            <button id="searchBtn" type="button" class="btn btn-primary w-100">חיפוש מאמר</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- אזור האייקונים החברתיים - תופס 4 עמודות בדסקטופ -->
+      <div id="PublicationsArea" class="col-lg-4 col-md-12">
+        <div class="social-icons d-flex align-items-center gap-2">
+          <div class="icon-circle"><span>f</span></div>
+          <div class="icon-circle"><span>𝕏</span></div>
+          <div class="icon-circle"><span>in</span></div>
+          <div id="worldIcon"><span>🌐</span></div>
+          <a href="#">English</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- אזור התוכן הראשי - כרטיסי פרסומים ואירועים -->
+  <div id="pageLayout" class="container-fluid">
+    <div class="row">
+      
+      <div class="col-lg-8 col-md-12">
+        <div id="cardsContainer" class="row g-3"></div>
+        <!-- הכרטיסים יתווספו כאן דינמית על ידי ה-JavaScript -->
+      </div>
+      
+      <div class="col-lg-4 col-md-12">
+        <div id="line"></div>
+        <div id="eventHeader">
+          <h4 id="eventText">אירועים</h4>
+          <a href="#">לכל האירועים</a>
+        </div>
+        
+        <div class="row g-3 mt-3">
+          
+          <div class="col-lg-12 col-md-6 col-sm-12">
+            <!-- col-lg-12 = דסקטופ: רוחב מלא (1 בשורה) -->
+            <!-- col-md-6 = טאבלט: 50% רוחב (2 בשורה) -->
+            <!-- col-sm-12 = מובייל: רוחב מלא (1 בשורה) -->
+            <div class="event-box">
+              <img src="images/img.png" alt="אירוע 1">
+            </div>
+          </div>
+          
+          <div class="col-lg-12 col-md-6 col-sm-12">
+            <div class="event-box">
+              <img src="images/img.png" alt="אירוע 2">
+            </div>
+          </div>
+          
+          <div class="col-lg-12 col-md-6 col-sm-12">
+            <div class="event-box">
+              <img src="images/img.png" alt="אירוע 3">
+            </div>
+          </div>
+          
+          <div class="col-lg-12 col-md-6 col-sm-12">
+            <div class="event-box">
+              <img src="images/img.png" alt="אירוע 4">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- קובץ ה-JavaScript שמטפל ביצירת הכרטיסים והחיפוש -->
+  <script src="scripts.js"></script>
+</body>
+</html>
