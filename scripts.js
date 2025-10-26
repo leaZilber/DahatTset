@@ -1,6 +1,4 @@
-// מחכה שכל הדף ייטען לפני שמריץ את הקוד
 document.addEventListener("DOMContentLoaded", function () {
-  // מערך של כל הכרטיסים עם המידע שלהם
   const cards = [
     {
       title: "החדשנות בביטחון הלאומי",
@@ -63,12 +61,9 @@ document.addEventListener("DOMContentLoaded", function () {
       link: "#"
     }
   ];
+  const container = document.getElementById("cardsContainer"); 
+  const searchBtn = document.getElementById("searchBtn"); 
 
-  // מקבל את האלמנטים מה-HTML
-  const container = document.getElementById("cardsContainer"); // המיכל שיכיל את הכרטיסים
-  const searchBtn = document.getElementById("searchBtn"); // כפתור החיפוש
-
-  // פונקציה שמציגה כרטיסים על המסך
   function renderCards(list) {
     container.innerHTML = "";
 
@@ -85,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // col-md-6 = 50% בטאבלט (2 בשורה)
       // col-sm-12 = 100% במובייל (1 בשורה)
 
-      // יוצר את הכרטיס כקישור
       const card = document.createElement('a');
       card.href = item.link;
       card.className = 'publication-card';
@@ -103,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>`;
 
-      // מוסיף את הכרטיס ל-div ואת ה-div למיכל
       colDiv.appendChild(card);
       container.appendChild(colDiv);
     });
@@ -118,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const fromDate = document.getElementById("fromDate").value;
     const toDate = document.getElementById("toDate").value;
 
-    // מסנן את המערך לפי התנאים
     const filtered = cards.filter(card => {
       const matchesType = !type || card.type === type;
       const matchesSubject = !subject || card.subject === subject;
@@ -127,14 +119,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const matchesDate = (!fromDate || new Date(card.date) >= new Date(fromDate)) &&
         (!toDate || new Date(card.date) <= new Date(toDate));
 
-      // מחזיר true רק אם כל התנאים מתקיימים
       return matchesType && matchesSubject && matchesAuthor && matchesText && matchesDate;
     });
 
     renderCards(filtered);
   }
 
-  // מציג את כל הכרטיסים בטעינה ראשונית
   renderCards(cards);
 
   searchBtn.addEventListener("click", filterCards);
